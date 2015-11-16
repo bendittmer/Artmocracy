@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+    {% load staticfiles %}
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery=1 %}
+    <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+    <link type="text/css" rel="stylesheet" href="{% static "css/font-awesome.css" %}" >
+    <link type="text/css" rel="stylesheet" href="{% static "css/main-style.css" %}" >
+  </head>
+  <body>
+    <header>
+      <div class="signin-header">
+	<i class="fa fa-university signin-logo"></i>
+	Artmocracy
+      </div>
+    </header>
+    
+    <div class="signin-container">
+      <form action= "{% url 'newuser' %}" method="post">
+	{% csrf_token %}
+	<div class="form-group has-feedback has-feedback-left user">
+	  <input id= "text" type="text"
+		 class="form-control input-lg" name="new_user_name"
+		 placeholder="Username or email" required>
+	  <i class="fa fa-user fa-lg form-control-feedback signin-icon"></i>
+	  
+	</div>
+	<div class="form-group has-feedback has-feedback-left pass">
+	  <input id= "text" type="text"
+		 class="form-control input-lg" name="new_user_password"
+		 placeholder="Password" required>
+	  <i class="fa fa-lock fa-lg form-control-feedback signin-icon"></i>
+	</div>
+	<div class="signin-button">
+	  <input type="submit" value="Create An Account" class="btn btn-primary btn-lg">
+	</div>
+      </form> 
+      
+    </div>
+    
+    <br><br><br>  
+    <a href="{% url 'new_user_page' %}">New User?</a> 
+    <br><br><br>
+
+    <a href="{% url 'home' %}">return to home page</a> <br>
+
+  </body>
+</html>

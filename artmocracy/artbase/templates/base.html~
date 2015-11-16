@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Title{% endblock %}</title>
+    {% load staticfiles %}
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery=1 %}
+    <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+    <link type="text/css" rel="stylesheet" href="{% static "css/font-awesome.css" %}" >
+    <link type="text/css" rel="stylesheet" href="{% static "css/main-style.css" %}" >
+    <link type="text/css" rel="stylesheet" href="{% static "css/dropzone.css" %}" > 
+  </head>
+  <body>
+    <div class="nav-bar">
+      <ul class="user-nav">
+	<li><a class="btn-sm btn-default" href="{% url 'submitwritings' %}">Upload</a></li>
+	{% if user.is_authenticated %}
+	<li>
+	  <span class="username">
+	    
+	  <div class="dropdown">
+	    <button class="btn-sm btn-invis user-dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+	      <i class="fa fa-user"></i>
+	      {{ user }}
+	      <span class="caret"></span>
+	    </button>
+	    <ul class="dropdown-menu user-dropdown pull-right" aria-labelledby="dropdownMenu2">
+	      <li><a href="{% url 'submitdrawings' %}">Sign Out</a></li>
+	    </ul>
+	  </div>
+	  
+
+	  
+	</span>
+	</li>
+	{% else %}
+	<li><a class="btn-sm btn-primary" href="{% url 'loginpage' %}">Sign In</a></li>
+	{% endif %}
+      </ul>
+      
+      <header>
+	<h1>
+	  <span class="site-logo">
+	    <span class="fa-stack">
+	      <a href="{% url 'home' %}">
+		<i class="fa fa-university fa-stack-2x "></i>
+	      </a>
+	    </span>
+	  </span>
+	  <span class="site-title">
+	    <a href="{% url 'home' %}">Artmocracy</a>
+	  </span>
+
+	</h1>
+      </header>
+
+
+      <ul class="winner-nav">
+	<li><a href="{% url 'pastwinners' %}">
+	    <i class="icon fa fa-trophy"></i>
+	    Winners</a></li>
+      </ul>
+      <ul class="category-nav">
+	<li><a href="{% url 'writings' %}">
+	    <i class="icon fa fa-book"></i>
+	    Writings</a></li>
+	<li><a href="{% url 'home' %}">
+	    <i class="icon fa fa-pencil"></i>
+	    Drawings</a></li>
+	<li><a href="{% url 'photography' %}">
+	    <i class="icon fa fa-camera-retro"></i>
+	    Photography </li></a>
+      </ul>
+
+
+      
+    </div>
+    <main>
+
+      {% block main_content %}
+      Do you like A or B better???
+      {% endblock %}
+    </main>
+    
+  </body>
+</html>

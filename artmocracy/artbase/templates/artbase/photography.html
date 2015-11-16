@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}
+Photography
+{% endblock %}
+
+{% block nav_bar %}
+<a href="{% url 'home' %}">drawings</a> <br>
+<a href="{% url 'photography' %}">photography</a> <br>
+<a href="{% url 'writings' %}">writings</a> <br>
+<a href="{% url 'submit' %}">submit</a> <br>
+<a href="{% url 'pastwinners' %}">past winners</a> 
+{% endblock %}
+
+
+{% block main_content %}
+<div class="wrapper">
+  <div class="left" onclick="submitA();">
+    <img src="{{ MEDIA_URL }}{{option_a.text}}" width="100%" height="100%">
+  </div>
+  <div class="right" onclick="submitB();">
+    <img src="{{ MEDIA_URL }}{{option_b.text}}" width="100%" height="100%">
+  </div>
+</div>
+
+<form hidden id="A" action= "" method="post">
+  {% csrf_token %}
+  <input type="hidden"
+	 value="{{ random_photo_number }}"
+	 name="optionA"
+	 id="optionA">
+  
+	 
+  <input id="A_submit" type="submit" name="action" value="Option A">
+</form>
+
+<form hidden id="B" action= "" method="post">
+  {% csrf_token %}
+  <input type="hidden"
+	 value="{{ random_photo_number_two }}"
+	 name="optionB"
+	 id="optionB">
+  
+	 
+  <input id="B_submit" type="submit" name="action" value="Option B">
+</form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+  function submitA(){
+  $("#A_submit").trigger('click');
+  }
+
+  function submitB() {
+  $("#B_submit").trigger('click');
+  }
+</script>
+
+{% endblock %}

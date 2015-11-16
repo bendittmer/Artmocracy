@@ -1,0 +1,16 @@
+SUBMIT SOMETHING!
+
+<br><br><br>
+
+so what do you want to submit!!?
+<br>
+<br>
+my drawings!
+<br>
+my photos! 
+<br>
+ <a href="{% url 'submitwritings' %}">my writings!</a>
+
+ 
+ <br><br><br>
+ <a href="{% url 'home' %}">return to home page</a> <br>

@@ -1,0 +1,12 @@
+submit your writings here
+
+<br><br>
+
+<form action= "{% url 'submitstuff' %}" method="post">
+    {% csrf_token %}
+	My Writings: <input id= "text" type="text" size= "60" name="writings_submission" required>  <br> <br>
+	<br><input type="submit" value="Submit">
+  </form> 
+  <br>
+ <br><br>
+ <a href="{% url 'home' %}">return to home page</a> <br>

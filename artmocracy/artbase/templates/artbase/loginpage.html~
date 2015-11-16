@@ -1,0 +1,16 @@
+Log in here:
+<br><br>
+ <form action= "{% url 'userlogin' %}" method="post">
+    {% csrf_token %}
+    Username: <input id= "text" type="text" size= "30" name="user_name" required>  <br> 
+	Password: <input id= "text" type="text" size= "30" name="password" required>  <br> 
+
+    <br><input type="submit" value="Log In" class="btn btn-default">
+  </form> 
+  
+  
+<br><br><br>  
+  <a href="{% url 'new_user_page' %}">New User?</a> 
+<br><br><br>
+
+  <a href="{% url 'home' %}">return to home page</a> <br>

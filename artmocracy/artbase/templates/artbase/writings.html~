@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}
+Photography
+{% endblock %}
+
+{% block nav_bar %}
+<a href="{% url 'home' %}">drawings</a> <br>
+<a href="{% url 'photography' %}">photography</a> <br>
+<a href="{% url 'writings' %}">writings</a> <br>
+<a href="{% url 'submit' %}">submit</a> <br>
+<a href="{% url 'pastwinners' %}">past winners</a> 
+{% endblock %}
+
+
+{% block main_content %}
+<div class="wrapper">
+  <div class="left" onclick="submitA();">
+    {{option_a.text}}
+  </div>
+  <div class="right" onclick="submitB();">
+    {{option_b.text}}
+  </div>
+</div>
+
+<form hidden id="A" action= "{% url 'vote_a' random_writing_number %}" method="post">
+  {% csrf_token %}
+  <input type="submit" value="Option A">
+</form>
+
+<form hidden id="B" action= "{% url 'vote_b' random_writing_number_two %}" method="post">
+  {% csrf_token %}
+  <input type="submit" value="Option B">
+</form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+  function submitA(){
+  $("#A").submit();
+  }
+
+  function submitB() {
+  $("#B").submit();
+  }
+</script>
+
+{% endblock %}

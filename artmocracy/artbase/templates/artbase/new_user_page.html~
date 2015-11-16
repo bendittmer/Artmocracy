@@ -1,0 +1,16 @@
+ 
+ 
+ 
+<form action= "{% url 'newuser' %}" method="post">
+    {% csrf_token %}
+    Username: <input id= "text" type="text" size= "30" name="new_user_name" required>  <br> 
+	Password: <input id= "text" type="text" size= "30" name="new_user_password" required>  <br> 
+
+    <br><input type="submit" value="Create Account" class="btn btn-default">
+</form> 
+
+
+<br><br><br>
+
+
+<a href="{% url 'home' %}">return to home page</a> <br>

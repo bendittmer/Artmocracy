@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<div class="center">
+
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Photography
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <li><a href="{% url 'submitdrawings' %}">Drawings</a></li>
+      <li><a href="{% url 'submitphotography' %}">Photography</a></li>
+      <li><a href="{% url 'submitwritings' %}">Writings</a></li>
+    </ul>
+  </div>
+  
+  <div class="upload">
+    <i class="fa fa-upload fa-5x"></i>
+  </div>
+  <div class="select_file">
+    Select File to Upload
+  </div>
+  <div class="drag_drop">
+    Or Drag and Drop
+  </div>
+
+  <br><br><br>
+
+</div>
+{% endblock %}

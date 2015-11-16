@@ -1,0 +1,8 @@
+ARTMOCRACY
+<br><br>
+drawings <br> <a href="{% url 'photography' %}">photography</a> <br> <a href="{% url 'writings' %}">writings</a> <br> <a href="{% url 'submit' %}">submit</a> 
+<br><a href="{% url 'pastwinners' %}">past winners</a> 
+
+<br><br><br><br>
+
+Do you like A or B better????
