@@ -1,0 +1,2 @@
+# Artmocracy
+Art Contest Website
